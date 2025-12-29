@@ -685,22 +685,7 @@ body {
 }
 
 /* Navbar Mobile Overrides */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 20px 0;
-  }
-
-  .nav-links {
-    gap: 20px;
-    padding: 10px 25px;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .nav-item {
-    font-size: 12px;
-  }
-}
-
+/* Responsive Pricing */
 /* Pricing Section */
 .pricing-wrapper {
   width: 100%;
@@ -806,8 +791,28 @@ body {
   font-weight: 900;
 }
 
-/* Responsive Pricing */
+/* Navbar and Pricing Mobile Overrides */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 20px 0;
+  }
+
+  .nav-links {
+    gap: 15px;
+    /* Reduced from 20px to prevent overflow */
+    padding: 10px 15px;
+    /* Reduced padding */
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-item {
+    font-size: 11px;
+    /* Slightly smaller to fit */
+    white-space: nowrap;
+    /* Prevent text wrapping inside links */
+  }
+
+  /* Pricing Section Mobile */
   .pricing-title {
     font-size: 48px;
   }
@@ -818,8 +823,14 @@ body {
   }
 
   .pricing-card {
-    width: 100%;
+    width: 85%;
+    /* Match typical mobile width */
     max-width: 100%;
+    /* Ensure it doesn't overflow */
+    min-width: unset;
+    /* Remove desktop min-width constraint */
     margin-bottom: 30px;
+    padding: 30px 20px;
+    /* Adjust padding for mobile */
   }
 }
