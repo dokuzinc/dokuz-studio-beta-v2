@@ -212,8 +212,7 @@ body {
   height: auto;
   z-index: 10;
   padding: 120px 0 50px 0;
-  margin-top: -100px;
-  /* Increased top padding to prevent clipping of tilted layout, used neg margin to keep position */
+  margin-top: 50px;
   overflow: hidden;
   /* ensure no horizontal scroll triggers */
 }
@@ -271,7 +270,7 @@ body {
   position: relative;
   text-align: center;
   z-index: 10;
-  padding: 150px 0 50px 0;
+  padding: 50px 0 50px 0;
 }
 
 
@@ -463,9 +462,9 @@ body {
 
 
 .contact-icon-left {
-  width: 500px;
+  width: 400px;
   position: absolute;
-  left: 100px;
+  left: 140px;
   top: 10px;
   bottom: 100px;
   z-index: 0;
@@ -482,11 +481,11 @@ body {
 
 @media (min-width: 769px) {
   .icon-left.top.show-left {
-    left: 300px;
+    left: 100px;
   }
 
   .icon-right.top.show-right {
-    right: 300px;
+    right: 100px;
   }
 }
 
@@ -578,11 +577,13 @@ body {
   }
 
   .icon-left.top {
-    left: 50px;
+    left: 40px;
+    top: -20px;
   }
 
   .icon-right.top {
-    right: 50px;
+    right: 40px;
+    top: -20px;
   }
 
   /* Adjust ticker size */
@@ -614,9 +615,14 @@ body {
     width: 85%;
   }
 
-  .icon-left.bottom,
+  .icon-left.bottom {
+    left: 40px;
+    bottom: -50px;
+  }
+
   .icon-right.bottom {
-    bottom: -80px;
+    right: 40px;
+    bottom: -50px;
   }
 
   .akis-gallery {
@@ -767,6 +773,11 @@ body {
   transition: color 0.3s ease;
 }
 
+.package-features li.passive {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .package-price {
   font-family: sans-serif;
   font-size: 36px;
@@ -832,5 +843,70 @@ body {
     margin-bottom: 30px;
     padding: 30px 20px;
     /* Adjust padding for mobile */
+  }
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  padding: 50px 0;
+  background: #020405;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.copyright {
+  font-family: sans-serif;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: #ccc;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #00ff00;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+/* Icon Visibility */
+.mobile-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-icon {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: block;
   }
 }
