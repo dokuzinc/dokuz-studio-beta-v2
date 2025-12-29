@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Neon Glow Filter -->
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Content Group -->
+  <g filter="url(#neon-glow)">
+    <!-- Main Circle/Curve for '9' or 'D' abstract shape -->
+    <path 
+      d="M200 100 
+         A 100 100 0 1 1 200 300 
+         A 100 100 0 1 1 200 100 
+         M 280 100
+         L 280 412" 
+      fill="none" 
+      stroke="#05ff00" 
+      stroke-width="40" 
+      stroke-linecap="round"
+      transform="translate(40, 0)"
+    />
+    
+    <!-- Inner circle for 9 -->
+     <circle cx="240" cy="200" r="70" fill="none" stroke="#05ff00" stroke-width="40" />
+     
+  </g>
+</svg>

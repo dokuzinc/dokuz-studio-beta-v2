@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokuz Studio</title>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+
+<body>
+
+
+  <!-- Nav Bar -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#home" class="nav-item">HOME</a>
+      <a href="#about" class="nav-item">ABOUT ME</a>
+      <a href="#services" class="nav-item">SERVICES</a>
+      <a href="#packages" class="nav-item">PACKAGES</a>
+      <a href="#contact" class="nav-item">CONTACT ME</a>
+    </div>
+  </nav>
+
+  <!-- giris -->
+  <div class="head1" id="home">
+
+    <div class="head2">
+      <div class="container">
+        <img src="img/welcomen-bice2.webp" alt="gorsel" class="parallax-img">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ticker-wrapper top">
+    <div class="ticker">
+      <span class="top-text-color">✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦
+        THE BEST SOLUTION ✦ THE BEST SOLUTION ✦
+        THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST
+        SOLUTION ✦
+      </span>
+    </div>
+  </div>
+
+  <div class="ticker-wrapper bottom">
+    <div class="ticker reverse">
+      <span class="bottom-text-color">✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION
+        ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦
+        THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST SOLUTION ✦ THE BEST
+        SOLUTION ✦</span>
+    </div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    const image = document.querySelector('.parallax-img');
+
+    window.addEventListener('mousemove', (e) => {
+      // Performans icin sadece gorunur alanda calissin
+      if (window.scrollY > window.innerHeight) return;
+
+      const {
+        clientX,
+        clientY
+      } = e;
+      const {
+        innerWidth,
+        innerHeight
+      } = window;
+
+      const moveX = ((clientX / innerWidth) - 0.5) * 30;
+      const moveY = ((clientY / innerHeight) - 0.5) * 30;
+
+      image.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    // mouseleave artik window icin cok anlamli degil ama resetlemek istersek
+    document.body.addEventListener('mouseleave', () => {
+      image.style.transform = 'translate(0, 0)';
+    });
+  </script>
+
+  <!-- giris sonu -->
+
+  <!-- hakkimda giris -->
+  <section class="about-section" id="about">
+
+    <div class="circle left-circle top" id="left-circle-1"><img src="img/circle1.webp" /></div>
+    <div class="circle left-circle bottom" id="left-circle-2"><img src="img/circle2.webp" /></div>
+
+    <div class="about-content">
+      <h1 class="about-me" id="about-title">ABOUT ME</h1>
+      <p class="about-text" id="about-text">
+        Hi! I'm Dokuz.
+        I'm a versatile designer and developer who blends creativity with the power of technology. By day, I work in the
+        fast-paced world of art direction; by night, I dive into game development, AI-generated visuals, and web
+        projects.
+        <br>
+        <br>
+        I have a strong interest in graphic design, UI/UX, 3D modeling, and cinematic visual aesthetics. I develop
+        multiplayer games with Unity and create interactive 3D experiences on the web using Three.js. In my projects, I
+        prioritize both visual detail and user experience.
+        <br><br>
+        I also enjoy staying creative through code—building Discord bots, mobile games, AI-powered visual systems, and
+        animated web interfaces. I actively develop projects using languages like C#, C++, JavaScript, and Node.js.
+        <br><br>
+        In my spare time, I love creating cinematic-style photography, experimenting with analog film effects, and
+        exploring new creative ideas. Sometimes, I just unwind with a good series or a fun game.
+        <br><br>
+        My multidisciplinary nature allows me to balance both technical and artistic skills, and I’m always eager to
+        keep learning and evolving.
+      </p>
+    </div>
+
+    <div class="circle right-circle top" id="right-circle-1"><img src="img/circle3.webp" /></div>
+    <div class="circle right-circle bottom" id="right-circle-2"><img src="img/circle4.webp" /></div>
+
+    <script>
+      const aboutTitle = document.getElementById("about-title");
+      const aboutText = document.getElementById("about-text");
+      const circles = document.querySelectorAll(".circle");
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        // baslik
+        const titleRect = aboutTitle.getBoundingClientRect();
+        if (titleRect.top < window.innerHeight * 0.75) {
+          aboutTitle.classList.add("filled");
+        } else {
+          aboutTitle.classList.remove("filled");
+        }
+
+        // Yazi gorunmeye baslasin
+        const textOffset = aboutText.offsetTop;
+        const windowHeight = window.innerHeight;
+        if (scrollY + windowHeight > textOffset + 50) {
+          aboutText.classList.add("reveal");
+        }
+
+        // Daireler gelsin
+        circles.forEach(circle => {
+          const offsetTop = circle.offsetTop;
+
+          if (scrollY + windowHeight > offsetTop + 50) {
+            circle.classList.add("reveal");
+          }
+        });
+      });
+    </script>
+
+  </section>
+
+  <!-- hakkimda sonu -->
+
+  <!-- gallery giris -->
+
+  <div class="akis-gallery" id="gallery">
+
+    <div class="tilted-wrapper">
+      <div class="tilted-gallery">
+        <img src="img/1.webp" class="img-box">
+        <img src="img/2.webp" class="img-box">
+        <img src="img/3.webp" class="img-box">
+        <img src="img/4.webp" class="img-box">
+        <img src="img/5.webp" class="img-box">
+        <img src="img/6.webp" class="img-box">
+        <img src="img/7.webp" class="img-box">
+        <img src="img/8.webp" class="img-box">
+        <!-- dongu -->
+        <img src="img/1.webp" class="img-box">
+        <img src="img/2.webp" class="img-box">
+        <img src="img/3.webp" class="img-box">
+        <img src="img/4.webp" class="img-box">
+        <img src="img/5.webp" class="img-box">
+        <img src="img/6.webp" class="img-box">
+        <img src="img/7.webp" class="img-box">
+        <img src="img/8.webp" class="img-box">
+      </div>
+    </div>
+
+
+    <div class="tilted-wrapper2">
+      <div class="tilted-gallery2">
+        <img src="img/1.webp" class="img-box">
+        <img src="img/2.webp" class="img-box">
+        <img src="img/3.webp" class="img-box">
+        <img src="img/4.webp" class="img-box">
+        <img src="img/5.webp" class="img-box">
+        <img src="img/6.webp" class="img-box">
+        <img src="img/7.webp" class="img-box">
+        <img src="img/8.webp" class="img-box">
+        <!-- dongu -->
+        <img src="img/1.webp" class="img-box">
+        <img src="img/2.webp" class="img-box">
+        <img src="img/3.webp" class="img-box">
+        <img src="img/4.webp" class="img-box">
+        <img src="img/5.webp" class="img-box">
+        <img src="img/6.webp" class="img-box">
+        <img src="img/7.webp" class="img-box">
+        <img src="img/8.webp" class="img-box">
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function createScrollGallery(selector, direction = 1) {
+      const gallery = document.querySelector(selector);
+      let lastScrollY = window.scrollY;
+      let currentOffset = 0;
+
+      function animate() {
+        const currentScrollY = window.scrollY;
+        const velocity = (currentScrollY - lastScrollY) * 0.5 * direction;
+        lastScrollY = currentScrollY;
+
+        currentOffset += velocity;
+
+        // Seamless loop logic
+        // Assume content is duplicated 2x
+        const totalWidth = gallery.scrollWidth;
+        const period = totalWidth / 2;
+
+        if (period > 0) {
+          // Keep offset within [0, period) range for seamless wrapping
+          // This assumes the second half of the content is an exact copy of the first half
+          if (currentOffset < 0) {
+            currentOffset = (currentOffset % period) + period;
+          } else if (currentOffset >= period) {
+            currentOffset = currentOffset % period;
+          }
+        }
+
+        gallery.style.transform = `translateX(${-currentOffset}px)`;
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // first sola kayiyor
+    createScrollGallery('.tilted-gallery', 1);
+
+    // İkinci saga kayiyor
+    createScrollGallery('.tilted-gallery2', -1);
+  </script>
+
+  <!-- ikinci akis sonu -->
+
+  </div>
+
+  <!-- gallery sonu -->
+
+
+  <!-- services baslangic-->
+  <div class="services-parent" id="services">
+
+
+    <h1 class="services" id="services-title">SERVICES</h1>
+
+    <script>
+      const servicesTitle = document.getElementById("services-title");
+      window.addEventListener("scroll", () => {
+        const rect = servicesTitle.getBoundingClientRect();
+
+        // baslik
+        if (rect.top < window.innerHeight * 0.75) {
+          servicesTitle.classList.add("filled");
+        } else {
+          servicesTitle.classList.remove("filled");
+        }
+
+      });
+
+    </script>
+
+    <!--ikon-in-out baslangic-->
+    <img src="img/set-1.webp" class="icon icon-left top" id="icon1">
+    <img src="img/set-2.webp" class="icon icon-left bottom" id="icon2">
+
+    <img src="img/set-3.webp" class="icon icon-right top" id="icon3">
+    <img src="img/set-4.webp" class="icon icon-right bottom" id="icon4">
+
+
+    <script>
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".icon").forEach(icon => {
+          const rect = icon.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.8) {
+            if (icon.classList.contains("icon-left")) {
+              icon.classList.add("show-left");
+            } else {
+              icon.classList.add("show-right");
+            }
+          }
+        });
+      });
+    </script>
+    <!--ikon-in-out cikis-->
+
+    <section class="scroll-section">
+      <div class="box hidden">
+        <span class="number">01</span>
+        <span class="title">Graphic Design</span>
+      </div>
+      <div class="box hidden">
+        <span class="number">02</span>
+        <span class="title">Web Design</span>
+      </div>
+      <div class="box hidden">
+        <span class="number">03</span>
+        <span class="title">Social Media Management</span>
+      </div>
+      <div class="box hidden">
+        <span class="number">04</span>
+        <span class="title">Digital Marketing</span>
+      </div>
+    </section>
+
+    <script>
+      const boxes = document.querySelectorAll('.box');
+
+      const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.7;
+
+        boxes.forEach(box => {
+          const boxTop = box.getBoundingClientRect().top;
+
+          if (boxTop < triggerBottom) {
+            box.classList.add('show');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', revealOnScroll);
+    </script>
+
+
+
+    <!-- Pricing Section -->
+    <div class="pricing-wrapper" id="packages">
+      <h2 class="pricing-title" id="pricing-title">PACKAGES</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3 class="package-name">BAŞLANGIÇ</h3>
+          <ul class="package-features">
+            <li>Ayda 8 Post</li>
+            <li>Ayda 4 Story</li>
+          </ul>
+          <div class="package-price">7.500₺</div>
+        </div>
+        <div class="pricing-card">
+          <h3 class="package-name">STANDART</h3>
+          <ul class="package-features">
+            <li>Ayda 12 Post</li>
+            <li>Ayda 8 Story</li>
+            <li>1 Reels Videosu</li>
+          </ul>
+          <div class="package-price">10.000₺</div>
+        </div>
+        <div class="pricing-card">
+          <h3 class="package-name">GELİŞMİŞ</h3>
+          <ul class="package-features">
+            <li>Ayda 15 Post</li>
+            <li>Ayda 10 Story</li>
+            <li>4 Reels Videosu</li>
+            <li>Özel Günler İçin Paylaşım</li>
+          </ul>
+          <div class="package-price">12.500₺</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const pricingTitle = document.getElementById("pricing-title");
+      window.addEventListener("scroll", () => {
+        const rect = pricingTitle.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.75) {
+          pricingTitle.classList.add("filled");
+        } else {
+          pricingTitle.classList.remove("filled");
+        }
+      });
+    </script>
+  </div>
+  <!-- services sonu-->
+
+  <!-- contact baslangic-->
+
+  <div class="contact-me" id="contact">
+    <h1 class="contact" id="contact-title">CONTACT ME</h1>
+    <script>
+      const contactTitle = document.getElementById("contact-title");
+      window.addEventListener("scroll", () => {
+        const rect = contactTitle.getBoundingClientRect();
+
+        // baslik
+        if (rect.top < window.innerHeight * 0.75) {
+          contactTitle.classList.add("filled");
+        } else {
+          contactTitle.classList.remove("filled");
+        }
+
+      });
+
+    </script>
+
+
+    <div class="contact-section">
+
+      <div class="contact-form-wrapper">
+        <form class="contact-form">
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="E-mail">
+          <input type="tel" placeholder="Phone">
+          <textarea placeholder="Message.."></textarea>
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+
+      <img src="img/telefon.webp" alt="Phone" class="contact-icon-left">
+      <img src="img/welcomen-bice23.webp" alt="Avatar" class="contact-avatar-right">
+    </div>
+
+    <script>
+      const contactForm = document.querySelector('.contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = contactForm.querySelector('button');
+          const originalText = btn.innerText;
+
+          // Simulate sending
+          btn.innerText = 'SENDING...';
+          btn.disabled = true;
+          btn.style.cursor = 'default';
+
+          setTimeout(() => {
+            btn.innerText = 'MESSAGE SENT!';
+            // Keep the gradient green
+            btn.style.background = 'linear-gradient(to right, #05ff00, #00ff00)';
+            btn.style.color = 'black';
+
+            setTimeout(() => {
+              contactForm.reset();
+              btn.innerText = originalText;
+              btn.disabled = false;
+              btn.style.cursor = 'pointer';
+              btn.style.background = ''; // reset to default
+              btn.style.color = '';
+            }, 3000);
+          }, 1500);
+        });
+      }
+    </script>
+    <!-- contact sonu-->
+  </div>
+
+  <script>
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 2.5, // Slower flow (default is usually ~1.2)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-item').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        lenis.scrollTo(targetId);
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
