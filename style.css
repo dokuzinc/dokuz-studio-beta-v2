@@ -21,7 +21,7 @@ body {
   min-height: 500px;
   z-index: 1;
   /* düşük */
-  background-image: url('img/welcomen-bice.webp');
+  background-image: url('img/welcomen-bice.png');
   background-size: cover;
   background-position: center;
   overflow: hidden;
