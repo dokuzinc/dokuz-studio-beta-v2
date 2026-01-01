@@ -550,6 +550,42 @@
 
 
 
+  <div class="cursor-follower"></div>
+  <script>
+    const cursorFollower = document.querySelector('.cursor-follower');
+    // Start at center to avoid flying in from corner if mouse not moved yet
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let followerX = mouseX;
+    let followerY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // Show cursor on first move if not already visible
+      if (cursorFollower.style.opacity === '0') {
+        cursorFollower.style.opacity = '1';
+      }
+    });
+
+    function animateCursor() {
+      // Linear interpolation for smooth trailing
+      const speed = 0.15; // Slightly faster for better feel
+      followerX += (mouseX - followerX) * speed;
+      followerY += (mouseY - followerY) * speed;
+
+      // Translate -20 to center the 40px circle (matches CSS width/height)
+      cursorFollower.style.transform = `translate3d(${followerX - 20}px, ${followerY - 20}px, 0)`;
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    // Initial state
+    cursorFollower.style.opacity = '0';
+    cursorFollower.style.transition = 'opacity 0.3s ease';
+
+    animateCursor();
+  </script>
 </body>
 
 </html>
