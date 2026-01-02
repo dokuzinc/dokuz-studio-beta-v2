@@ -12,6 +12,14 @@
 
 <body>
 
+  <!-- Loading Screen -->
+  <div class="loader-wrapper">
+    <div class="loader-content">
+      <div class="loader-text">DOKUZ</div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
 
   <!-- Nav Bar -->
   <nav class="navbar">
@@ -612,6 +620,22 @@
 
       document.body.style.setProperty('--bg-x2', `${pos2_val}%`);
       document.body.style.setProperty('--bg-y2', `${pos2_val}%`);
+    });
+  </script>
+  <script>
+    // Loading Screen Logic
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader-wrapper');
+
+      // Short delay to ensure the animation is seen for a moment
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+
+        // Remove from DOM after transition matches CSS transition time (0.5s)
+        setTimeout(() => {
+          loader.remove();
+        }, 500);
+      }, 1500); // 1.5 seconds visible time
     });
   </script>
 </body>
