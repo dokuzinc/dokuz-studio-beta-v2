@@ -586,6 +586,34 @@
 
     animateCursor();
   </script>
+
+  <script>
+    // Background Gradient Animation on Scroll
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      let progress = 0;
+
+      if (totalHeight > 0) {
+        progress = Math.min(Math.max(scrollY / totalHeight, 0), 1);
+      }
+
+      // Initial positions: Green (1) at 20,20; Yellow (2) at 80,80
+      // Target positions: Green (1) at 80,80; Yellow (2) at 20,20
+
+      // Calculate current positions based on linear interpolation
+      // Position 1 moves from 20 to 80
+      const pos1_val = 20 + (60 * progress);
+      // Position 2 moves from 80 to 20
+      const pos2_val = 80 - (60 * progress);
+
+      document.body.style.setProperty('--bg-x1', `${pos1_val}%`);
+      document.body.style.setProperty('--bg-y1', `${pos1_val}%`);
+
+      document.body.style.setProperty('--bg-x2', `${pos2_val}%`);
+      document.body.style.setProperty('--bg-y2', `${pos2_val}%`);
+    });
+  </script>
 </body>
 
 </html>

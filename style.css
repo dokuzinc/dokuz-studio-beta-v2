@@ -7,7 +7,17 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to right, #020405, #030506, #040608, #040809, #05090a, #05090a, #06090b, #06090b, #06080a, #05070a, #050709, #040608);
+  background-color: #000000;
+  /* Default positions */
+  --bg-x1: 20%;
+  --bg-y1: 20%;
+  --bg-x2: 80%;
+  --bg-y2: 80%;
+
+  background-image:
+    radial-gradient(circle at var(--bg-x1) var(--bg-y1), rgba(57, 255, 20, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at var(--bg-x2) var(--bg-y2), rgba(255, 240, 31, 0.25) 0%, transparent 40%);
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
 }
