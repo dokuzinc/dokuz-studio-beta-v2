@@ -1037,3 +1037,18 @@ body {
     transform: translateX(200%);
   }
 }
+
+/* Mobile Background Adjustments */
+@media (max-width: 768px) {
+  body {
+    /* 
+       On mobile, we separate the gradients horizontally to prevent them from
+       clumping in the center. We use the existing Y variables for vertical movement
+       but fix the X positions to the sides.
+       We also slightly reduce the size (40% -> 35%) for cleaner separation.
+    */
+    background-image:
+      radial-gradient(circle at 10% var(--bg-y1), rgba(57, 255, 20, 0.25) 0%, transparent 35%),
+      radial-gradient(circle at 90% var(--bg-y2), rgba(255, 240, 31, 0.25) 0%, transparent 35%);
+  }
+}
